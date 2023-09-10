@@ -1,8 +1,8 @@
 apt-get update
-echo "Install QEMU"
+echo "Installing QEMU (2-3m)..."
 apt install qemu-kvm -y
 read -p "Link win: " CRM
-echo "Download windows files"
+echo Downloading Windows Disk...
 wget -O win2012.qcow2 $CRM
 echo "Download ngrok"
 wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
