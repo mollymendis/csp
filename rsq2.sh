@@ -19,6 +19,7 @@ qemu-system-x86_64 -hda win2012.qcow2 -m 2G -vnc :0 -smp cores=1  -net user -net
 clear
 echo Your VNC IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+qemu-system-x86_64 -hda win2012.qcow2 -m 2G -vnc :0 -smp cores=1  -net user -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga qxl -accel kvm &>/dev/null &
 echo "Note: Use Right-Click Or Ctrl+Shift+C To Copy"
 echo "Please Keep Tab Open"
 sleep 43200
