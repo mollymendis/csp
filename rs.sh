@@ -19,6 +19,5 @@ echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "Starting Windows"
 sudo qemu-system-x86_64 -m 4G -cpu host -boot order=c -drive file=win2012.iso,media=cdrom -drive file=win2012.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=2 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
-echo "Note: Use Right-Click Or Ctrl+Shift+C To Copy"
 echo "Please Keep Tab Open"
 sleep 43200
